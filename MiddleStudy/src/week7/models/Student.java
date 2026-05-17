@@ -20,7 +20,17 @@ public class Student {
     }
 
     public String getInfo(){
-        String str = "학번 : " + id + "이름" + name;
+        String str = "학번 : " +this.id + "이름" + this.name;
+        str += "[수강 과목 목록]";
+        if(subjectList.isEmpty()){
+            str += "수강중인 과목이 없습니다 \n";
+        }
+        else {
+            for (Subject subject : subjectList){
+                str += "-" + subject.getInfo() + "\n";
+            }
+        }
+        return str;
 
     }
 
@@ -30,6 +40,11 @@ public class Student {
 
 
 
+    }
+
+    public Student(String id, String name){
+        this.id = id;
+        this.name = name;
     }
 
 
